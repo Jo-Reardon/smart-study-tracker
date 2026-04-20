@@ -10,16 +10,34 @@ h1 {
     margin-bottom: 30px;
 }
 
-button {
+#startBtn {
     padding: 15px 25px;
     font-size: 16px;
     border: none;
     border-radius: 10px;
-    background-color: #4CAF50;
+    background-color: #f0a139;
     color: white;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #45a049;
+#startBtn:hover {
+    background-color: #e48912;
+}
+
+#clearBtn {
+    padding: 10px 10px;
+    font-size: 11px;
+    border: line;
+    border-radius: 10px;
+    border-color: #f03939;
+    background-color: #f5f5f5;
+    color: #f03939;
+    cursor: pointer;
+}
+
+#clearBtn:hover {
+    transform: 0.5s ease; 
+    background-color: #c92828;
+    color: white;
+
 }
