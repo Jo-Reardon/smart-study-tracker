@@ -9,6 +9,7 @@ const sessionList = document.getElementById('sessionList');
 const totalTimeDisplay = document.getElementById('totalTime');
 const clearSessionsButton = document.getElementById('clearBtn');
 const feedback = document.getElementById('feedback');
+const bestSessionDisplay = document.getElementById('bestSession');
 
 //format the time into (mm:ss:ms)
 function formatTime(sec) {
@@ -70,7 +71,8 @@ clearSessionsButton.addEventListener('click', function () {
 function saveSession(duration){
     const session = {
         time: duration,
-        date: new Date().toLocaleString()
+        date: new Date().toLocaleDateString(),
+        timeOfDay: new Date().toLocaleTimeString()
     };
 
     let sessions = JSON.parse(localStorage.getItem("sessions")) || [];
@@ -92,6 +94,9 @@ function displaySessions(){
 
     //sort session from longest to shortest
     sessions.sort((a, b) => b.time - a.time);
+    const best = sessions[0];
+    sessionList.innerHTML = `Best Session: ${formatTime(best.time)} 🏆`;
+
 
     //total time studying
     const totalTime = sessions.reduce((total, session) => total + session.time, 0);
@@ -101,7 +106,7 @@ function displaySessions(){
 
     sessions.forEach(function (session){
         const li = document.createElement('li');
-        li.textContent = `${formatTime(session.time)} - ${session.date}`;
+        li.textContent = `${formatTime(session.time)} - ${session.date} @ ${session.timeOfDay}`;
         sessionList.appendChild(li);
     });
 
