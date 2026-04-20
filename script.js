@@ -95,7 +95,7 @@ function displaySessions(){
     //sort session from longest to shortest
     sessions.sort((a, b) => b.time - a.time);
     const best = sessions[0];
-    sessionList.innerHTML = `Best Session: ${formatTime(best.time)} 🏆`;
+    bestSessionDisplay.innerHTML = `Best Session: ${formatTime(best.time)} 🏆`;
 
 
     //total time studying
